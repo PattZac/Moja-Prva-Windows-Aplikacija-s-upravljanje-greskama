@@ -35,17 +35,20 @@ namespace MojaPrvaWindowsAplikacija
         private void button1_Click(object sender, EventArgs e)
         {
             int brojA, brojB, zbroj;
-            try
-            {
+            try { 
                 brojA = Convert.ToInt32(txtUnosBrojaA.Text);
                 brojB = Convert.ToInt32(txtUnosBrojaB.Text);
                 zbroj = brojA + brojB;
 
                 txtRezultat.Text = Convert.ToString(zbroj);
             }
-            catch
+            catch(Exception grska) 
             {
-                txtRezultat.Text = "Neispravan unos!";
+                string text = "Molim upisati broj. \n"+grska.Message;
+                string naslov = "Pogrešan unos";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(text, naslov, buttons, icon);
             }
         }
 
